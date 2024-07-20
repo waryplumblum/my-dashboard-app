@@ -1,3 +1,4 @@
+import { inject } from '@angular/core';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
@@ -57,8 +58,15 @@ export const routes: Routes = [
         loadComponent: () => import('./dashboard/pages/material/material.component'),
       },
       {
-        path:'', redirectTo: 'control-flow', pathMatch: 'full',
-      }
+        // path:'', redirectTo: 'control-flow', pathMatch: 'full',
+        path:'',
+        redirectTo: (route) => {
+          // console.log(route);
+          // const authService = inject(AuthService);
+          // if(authService.isLoggedIn){  }
+          return '/dashboard/control-flow'
+        }, pathMatch: 'full',
+      },
     ]
   },
   {
